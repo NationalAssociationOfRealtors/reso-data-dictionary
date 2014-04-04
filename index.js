@@ -431,14 +431,9 @@ $data.Entity.extend("reso.Property", {
   YearBuiltSource: { type: "string", maxLength: 60 },
   NewConstructionYN: { type: "boolean" },
   GreenBuildingVerification: { type: "string", maxLength: 1024 },
-  Green: { type: "object" },
-    /*
-     *  Green subdocuments may include...
-     *  Green[type].YearVerified (string)
-     *  Green[type].VerificationRating (string)
-     *  Green[type].VerificationMetric (int)
-     *  Green[type].VerificationURL (string)
-     */
+/* collection */
+  Green: { type: "array", elementType: "reso.Green"},
+/* collection */
   BuilderName: { type: "string", maxLength: 50 },
   BuilderModel: { type: "string", maxLength: 50 },
   Heating: { type: "string", maxLength: 1024 },
@@ -500,35 +495,12 @@ $data.Entity.extend("reso.Property", {
   AccessibilityFeatures: { type: "string", maxLength: 1024 },
   RoomsTotal: { type: "int" },
   RoomType: { type: "string", maxLength: 1024 },
-  Room: { type: "object" },
-    /*
-     *  Room subdocuments may include...
-     *  Room[type].Area (int)
-     *  Room[type].AreaUnits (string)
-     *  Room[type].AreaSource (string)
-     *  Room[type].Dimensions (string)
-     *  Room[type].Length (int)
-     *  Room[type].Width (int)
-     *  Room[type].LengthWidthUnits (string)
-     *  Room[type].LengthWidthSource (string)
-     *  Room[type].Level (int)
-     *  Room[type].Features (string)
-     *  Room[type].Description (string)
-     */
-  UnitType: { type: "object" },
-    /*
-     *  UnitType subdocuments may include...
-     *  UnitType[type].UnitsTotal (int)
-     *  UnitType[type].BedsTotal (int)
-     *  UnitType[type].BathsTotal (int)
-     *  UnitType[type].Furnished (string)
-     *  UnitType[type].Description (string)
-     *  UnitType[type].GarageSpaces (string)
-     *  UnitType[type].GarageAttachedYN (string)
-     *  UnitType[type].ActualRent (int)
-     *  UnitType[type].TotalRent (int)
-     *  UnitType[type].ProForma (int)
-     */
+/* collection */
+  Room: { type: "array", elementType: "reso.Room"},
+/* collection */
+/* collection */
+  UnitType: { type: "array", elementType: "reso.UnitType"},
+/* collection */
   Zoning: { type: "string", maxLength: 25 },
   ZoningDescription: { type: "string", maxLength: 255 },
   ParcelNumber: { type: "string", maxLength: 50 },
@@ -583,22 +555,12 @@ $data.Entity.extend("reso.Member", {
   MemberVoiceMailExt: { type: "int" },
   MemberTollFreePhone: { type: "string", maxLength: 16 },
   MemberPhoneTTY: { type: "string", maxLength: 16 },
-  MemberOtherPhone: { type: "object" },
-
-    /*
-     *  MemberOtherPhone subdocuments may include...
-     *  MemberOtherPhone[555-555-5555].Type (string)
-     *  MemberOtherPhone[555-555-5555].Number (string)
-     *  MemberOtherPhone[555-555-5555].Ext (int)
-     */
-
-  SocialMedia: { type: "object" },
-
-    /*
-     *  SocialMedia subdocuments may include...
-     *  SocialMedia[type].UrlOrId (string)
-     */
-
+/* collection */
+  MemberOtherPhone: { type: "array", elementType: "reso.OtherPhone"},
+/* collection */
+/* collection */
+  SocialMedia: { type: "array", elementType: "reso.SocialMedia"},
+/* collection */
   MemberAOR: { type: "string", maxLength: 50 },
   MemberAORMlsId: { type: "string", maxLength: 25 },
   MemberAORkey: { type: "string", maxLength: 255 },
@@ -641,20 +603,9 @@ $data.Entity.extend("reso.Office", {
   OfficeEmail: { type: "string", maxLength: 80 },
   OfficeType: { type: "string", maxLength: 50 },
   OfficeBranchType: { type: "string", maxLength: 50 },
-  OfficeUrlType: { type: "object" },
-
-    /*
-     *  OfficeUrlType subdocuments may include...
-     *  OfficeUrlType[int] (string)
-     */
-
-  OfficeUrlOrId: { type: "object" },
-
-    /*
-     *  OfficeUrlOld subdocuments may include...
-     *  OffoceUrlOld[int] (string)
-     */
-
+/* collection */
+  OfficeUrlType: { type: "array", elementType: "reso.OfficeUrlType"},
+/* collection */
   OfficeAOR: { type: "string", maxLength: 50 },
   OfficeAORMlsId: { type: "string", maxLength: 25 },
   OfficeAORKey: { type: "string", maxLength: 255 },
@@ -745,61 +696,21 @@ $data.Entity.extend("reso.Contact", {
   VoiceMailExt: { type: "int" },
   TollFreePhone: { type: "string", maxLength: 50 },
   PhoneTTY: { type: "string", maxLength: 50 },
-  OtherPhoneType: { type: "object" },
-
-    /*
-     *  OtherPhoneType subdocuments may include...
-     *  OtherPhoneType[int] (string)
-     */
-
-  OtherPhone: { type: "object" },
-
-    /*
-     *  OtherPhone subdocuments may include...
-     *  OtherPhone[int] (string)
-     */
-
-  OtherPhoneExt: { type: "string" },
-
-    /*
-     *  OtherPhoneExt subdocuments may include...
-     *  OtherPhoneExt[int] (int)
-     */
-
+/* collection */
+  OtherPhone: { type: "array", elementType: "reso.OtherPhone"},
+/* collection */
   Company: { type: "string", maxLength: 50 },
   Department: { type: "string", maxLength: 50 },
-  SocialMedia: { type: "object" },
-
-    /*
-     *  SocialMedia subdocuments may include...
-     *  SocialMedia[type].UrlOrId (string)
-     */
-
-  SocialMediaUrlOrId: { type: "object" },
-
-    /*
-     *  SocialMediaUrlOrId subdocuments may include...
-     *  SocialMediaUrlOrId[int] (string)
-     */
-
+/* collection */
+  SocialMedia: { type: "array", elementType: "reso.SocialMedia"},
+/* collection */
   Birthdate: { type: "date" },
   Anniversary: { type: "date" },
   TimestampEntered: { type: "datetime" },
   TimestampModified: { type: "datetime" },
-  UserDefinedFieldName: { type: "object" },
-
-    /*
-     *  UserDefinedFieldName subdocuments may include...
-     *  UserDefineFieldName[int] (string)
-     */
-
-  UserDefinedFieldValue: { type: "object" },
-
-    /*
-     *  UserDefinedFieldValue subdocuments may include...
-     *  UserDefineFieldValue[int] (string)
-     */
-
+/* collection */
+  UserDefinedField: { type: "array", elementType: "reso.UserDefinedField"},
+/* collection */
   AssistantName: { type: "string", maxLength: 150 },
   AssistantPhone: { type: "string", maxLength: 16 },
   AssistantPhoneExt: { type: "int" },
@@ -906,6 +817,67 @@ $data.Entity.extend("reso.OpenHouse", {
   ClassName: { type: "string", maxLength: 50 }
 });
 
+$data.Entity.extend("reso.Green", {
+  id: { key: true, type: "id", nullable: false, computed: true },
+  VerifiedYear: { type: "int" },
+  VerificationRatingYear: { type: "string", maxLength: 50 },
+  VerificationMatric: { type: "int" },
+  VerificationURL: { type: "string", maxLength: 8000 }
+});
+
+$data.Entity.extend("reso.Room", {
+  id: { key: true, type: "id", nullable: false, computed: true },
+  Area: { type: "number" },
+  AreaUnits: { type: "string", maxLength: 25 },
+  AreaSource: { type: "string", maxLength: 50 },
+  Dimensions: { type: "string", maxLength: 50 },
+  Length: { type: "number" },
+  Width: { type: "number" },
+  LengthWidthUnits: { type: "string", maxLength: 25 },
+  LengthWidthSource: { type: "string", maxLength: 50 },
+  Level: { type: "string", maxLength: 25 },
+  Features: { type: "string", maxLength: 1024 },
+  Description: { type: "string", maxLength: 1024 }
+});
+
+$data.Entity.extend("reso.UnitType", {
+  id: { key: true, type: "id", nullable: false, computed: true },
+  UnitsTotal: { type: "int" },
+  BedsTotal: { type: "int" },
+  BathsTotal: { type: "number" },
+  Furnished: { type: "string", maxLength: 20 },
+  Description: { type: "string", maxLength: 1024 },
+  GarageSpaces: { type: "number" },
+  GarageAttachedYN: { type: "boolean" },
+  ActualRent: { type: "number" },
+  TotalRent: { type: "number" },
+  Proforma: { type: "int" }
+});
+
+$data.Entity.extend("reso.OtherPhone", {
+  id: { key: true, type: "id", nullable: false, computed: true },
+  Type: { type: "string", maxLength: 25 },
+  PhoneNumber: { type: "string", maxLength: 16 },
+  Ext: { type: "int"}
+});
+
+$data.Entity.extend("reso.SocialMedia", {
+  id: { key: true, type: "id", nullable: false, computed: true },
+  Type: { type: "string", maxLength: 25 },
+  UrlOrId: { type: "string", maxLength: 8000 }
+});
+
+$data.Entity.extend("reso.OfficeUrlType", {
+  id: { key: true, type: "id", nullable: false, computed: true },
+  Type: { type: "string", maxLength: 25 },
+  UrlOrId: { type: "string", maxLength: 8000 }
+});
+
+$data.Entity.extend("reso.UserDefinedField", {
+  Name: { type: "string", maxLength: 500 },
+  Value: { type: "string", maxLength: 500 }
+});
+
 $data.EntityContext.extend("reso", {
   Property: { type: $data.EntitySet, elementType: reso.Property },  
   Member: { type: $data.EntitySet, elementType: reso.Member },
@@ -914,7 +886,14 @@ $data.EntityContext.extend("reso", {
   Media: { type: $data.EntitySet, elementType: reso.Media },
   History: { type: $data.EntitySet, elementType: reso.History },
   SavedSearch: { type: $data.EntitySet, elementType: reso.SavedSearch },
-  OpenHouse: { type: $data.EntitySet, elementType: reso.OpenHouse }
+  OpenHouse: { type: $data.EntitySet, elementType: reso.OpenHouse },
+  Green: { type: $data.EntitySet, elementType: reso.Green },
+  Room: { type: $data.EntitySet, elementType: reso.Room },
+  UnitType: { type: $data.EntitySet, elementType: reso.UnitType },
+  OtherPhone: { type: $data.EntitySet, elementType: reso.OtherPhone },
+  SocialMedia: { type: $data.EntitySet, elementType: reso.SocialMedia },
+  OfficeUrlType: { type: $data.EntitySet, elementType: reso.OfficeUrlType },
+  UserDefinedField: { type: $data.EntitySet, elementType: reso.UserDefinedField }
 });
 
 module.exports = exports = reso;
