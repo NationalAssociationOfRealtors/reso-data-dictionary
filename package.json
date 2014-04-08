@@ -1,7 +1,7 @@
 {
   "name": "reso-data-dictionary",
   "description": "The RESO Data Dictionary in a form that can be used for Jaydata clients and servers",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "homepage": "http://crt.blogs.realtor.org",
   "author": {
     "name": "Center for REALTOR Technology",
