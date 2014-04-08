@@ -878,7 +878,7 @@ $data.Entity.extend("reso.UserDefinedField", {
   Value: { type: "string", maxLength: 500 }
 });
 
-systemMetadata = $data.EntityContext.extend("reso", {
+$data.EntityContext.extend("reso", {
   Property: { type: $data.EntitySet, elementType: reso.Property },  
   Member: { type: $data.EntitySet, elementType: reso.Member },
   Office: { type: $data.EntitySet, elementType: reso.Office },
