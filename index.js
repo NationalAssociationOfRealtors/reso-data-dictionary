@@ -360,7 +360,7 @@ $data.Entity.extend("reso.Property", {
   IrrigationSource: { type: "string", maxLength: 255 },
   WaterSource: { type: "string", maxLength: 1024 },
   DistanceToWater: { type: "string", maxLength: 255 },
-  ElectricOnPropertyYN: { type: "string", maxLength: 1 },
+  ElectricOnPropertyYN: { type: "boolean" },
   DistanceToElectric: { type: "string", maxLength: 255 },
   Sewer: { type: "string", maxLength: 1024 },
   DistanceToSewer: { type: "string", maxLength: 255 },
